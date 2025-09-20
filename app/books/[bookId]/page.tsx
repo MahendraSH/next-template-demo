@@ -67,7 +67,7 @@ const BookIdPage: FC<BookIdPageProps> = ({ params }) => {
         <div>
           <h2 className="font-semibold mb-2">Excerpt</h2>
           <p className="text-muted-foreground leading-relaxed italic">
-            "{book.excerpt}"
+            &quot;{book.excerpt}&quot;
           </p>
         </div>
       </CardContent>
