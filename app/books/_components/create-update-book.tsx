@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -23,6 +23,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 const formSchema = z.object({
   tittle: z.string().min(2).max(50),
   description: z.string().min(5).max(500),
@@ -51,7 +52,9 @@ const CreateUpdateBookForm = () => {
   }
   return (
     <Dialog>
-      <DialogTrigger>Add a book</DialogTrigger>
+      <DialogTrigger className={cn(buttonVariants({ variant: "default" }))}>
+        Add a book
+      </DialogTrigger>
       <DialogContent>
         {/* <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>
@@ -69,7 +72,11 @@ const CreateUpdateBookForm = () => {
                 <FormItem>
                   <FormLabel>Title</FormLabel>
                   <FormControl>
-                    <Input placeholder="shadcn" {...field} />
+                    <Input
+                      placeholder="shadcn"
+                      {...field}
+                      className="border border-gray-500"
+                    />
                   </FormControl>
                   <FormDescription>
                     This is the title of the book.
@@ -88,6 +95,7 @@ const CreateUpdateBookForm = () => {
                     <Textarea
                       placeholder="A short description of the book"
                       {...field}
+                      className="border border-gray-500"
                     />
                   </FormControl>
                   <FormDescription>
@@ -123,6 +131,7 @@ const CreateUpdateBookForm = () => {
                     <Textarea
                       placeholder="A short excerpt from the book"
                       {...field}
+                      className="border border-gray-500"
                     />
                   </FormControl>
                   <FormDescription>
@@ -139,7 +148,12 @@ const CreateUpdateBookForm = () => {
                 <FormItem>
                   <FormLabel>Publish Date</FormLabel>
                   <FormControl>
-                    <Input type="date" placeholder="2023-10-10" {...field} />
+                    <Input
+                      type="date"
+                      placeholder="2023-10-10"
+                      {...field}
+                      className="border border-gray-500"
+                    />
                   </FormControl>
                   <FormDescription>
                     This is the publish date of the book.
